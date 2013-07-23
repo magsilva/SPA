@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.edu.utfpr.cm</groupId>
+		<artifactId>spa</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../spa/pom.xml</relativePath>
+	</parent>
+
+  	<artifactId>spa-it-jira</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Interfacing component for JIRA (based upon code originally developed at https://code.google.com/p/apache-jira-miner/)</name>
+	<inceptionYear>2011</inceptionYear>
+
+        <developers>
+                <developer>
+                        <id>douglasjunior</id>
+                        <name>Douglas Nassif Roma Junior</name>
+                        <email>nassifrroma@gmail.com</email>
+                        <url>http://cocic.utfpr.edu.br/alumni/nassifrroma</url>
+                        <timezone>+3</timezone>
+                        <roles>
+                                <role>Main developer</role>
+                        </roles>
+                </developer>
+        </developers>
+</project>

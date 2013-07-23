@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.edu.utfpr.cm</groupId>
+	<artifactId>spa</artifactId>
+	<packaging>pom</packaging>
+
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Software Project Analyzer (SPA)</name>
+	<description>Software repository miner.</description>
+	<url>http://cocic.utfpr.edu.br/projects/spa</url>
+	<inceptionYear>2013</inceptionYear>
+
+	<organization>
+		<name>Federal University of Technology - Paraná</name>
+		<url>http://www.utfpr.edu.br</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments />
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>magsilva</id>
+			<name>Marco Aurélio Graciotto Silva</name>
+			<email>magsilva@icmc.usp.br</email>
+			<url>http://www.icmc.usp.br/~magsilva/</url>
+			<organization>Ironia Corporation</organization>
+			<organizationUrl>http://www.ironiacorp.com</organizationUrl>
+			<timezone>+3</timezone>
+			<roles>
+				<role>Manager</role>
+				<role>Main developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<issueManagement>
+		<system>Bugzilla</system>
+		<url>http://cocic.utfpr.edu.br/apps/bugzilla/</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://cocic.utfpr.edu.br/apps/hudson/job/SPA/</url>
+	</ciManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>COCIC-UTFPR-CM</id>
+			<url>dav:http://cocic.utfpr.edu.br/repo/maven2</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>COCIC-UTFPR-CM</id>
+			<url>http://cocic.utfpr.edu.br/repo/maven2</url>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.0,)</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<directory>${project.basedir}/target</directory>
+
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+
+		<outputDirectory>${project.build.directory}/target/classes</outputDirectory>
+		<testOutputDirectory>${project.build.directory}/target/test-classes</testOutputDirectory>
+
+		<resources>
+			<resource>
+				<directory>${project.basedir}/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/test-resources</directory>
+				<filtering>false</filtering>
+			</testResource>
+		</testResources>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.4</version>
+			</extension>
+		</extensions>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>../spa-core</module>
+		<module>../spa-sna</module>
+		<module>../spa-it-jira</module>
+		<module>../spa-vcs-git</module>
+	</modules>
+</project>
+

@@ -60,6 +60,14 @@
 
 	<repositories>
 		<repository>
+			<id>IroniaCorp</id>
+			<url>http://ironiacorp.com/repo/maven2</url>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+
+		<repository>
 			<id>COCIC-UTFPR-CM</id>
 			<url>http://cocic.utfpr.edu.br/repo/maven2</url>
 			<releases>
@@ -74,6 +82,11 @@
 			<artifactId>junit</artifactId>
 			<version>[4.0,)</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ironiacorp</groupId>
+			<artifactId>commons-persistence</artifactId>
+			<version>[5.0.0-SNAPSHOT,)</version>
 		</dependency>
 	</dependencies>
 
@@ -130,6 +143,7 @@
 	<modules>
 		<module>../spa-core</module>
 		<module>../spa-sna</module>
+		<module>../spa-it-core</module>
 		<module>../spa-it-jira</module>
 		<module>../spa-vcs-git</module>
 	</modules>

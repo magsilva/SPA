@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.edu.utfpr.cm</groupId>
@@ -7,28 +8,44 @@
 		<relativePath>../spa/pom.xml</relativePath>
 	</parent>
 
-  	<artifactId>spa-sna</artifactId>
+	<artifactId>spa-sna</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Social Network Analysis tool for Software Project Analyzer (SPA)</name>
 	<inceptionYear>2013</inceptionYear>
 
-        <developers>
-                <developer>
-                        <id>anacm</id>
-                        <name>Ana Claudia Maciel</name>
-                        <email>anacm.maciel@gmail.com</email>
-                        <url>http://cocic.utfpr.edu.br/alumni/anacm</url>
-                        <timezone>+3</timezone>
-                        <roles>
-                                <role>Main developer</role>
-                        </roles>
-                </developer>
-        </developers>
-        <dependencies>
-        	<dependency>
-        		<groupId>br.edu.utfpr.cm</groupId>
-        		<artifactId>spa-core</artifactId>
-        		<version>[0.0.1-SNAPSHOT,)</version>
-        	</dependency>
-        </dependencies>
+	<developers>
+		<developer>
+			<id>anacm</id>
+			<name>Ana Claudia Maciel</name>
+			<email>anacm.maciel@gmail.com</email>
+			<url>http://cocic.utfpr.edu.br/alumni/anacm</url>
+			<timezone>+3</timezone>
+			<roles>
+				<role>Main developer</role>
+			</roles>
+		</developer>
+	</developers>
+	
+	<repositories>
+		<repository>
+			<id>Gephi</id>
+			<url>http://nexus.gephi.org/nexus/content/repositories/releases/</url>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>br.edu.utfpr.cm</groupId>
+			<artifactId>spa-core</artifactId>
+			<version>[0.0.1-SNAPSHOT,)</version>
+		</dependency>
+		<dependency>
+			<groupId>org.gephi</groupId>
+			<artifactId>gephi-toolkit</artifactId>
+			<version>[0.8.2,)</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="SPA" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>apacheJiraMiner.pojo.Projeto</class>
+    <class>apacheJiraMiner.pojo.Commits</class>
+    <class>apacheJiraMiner.pojo.Issue</class>
+    <class>apacheJiraMiner.pojo.ArquivoModificado</class>
+    <class>apacheJiraMiner.pojo.Comentario</class>
+    <class>apacheJiraMiner.pojo.Label</class>
+    <class>apacheJiraMiner.pojo.TargetVersion</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/aluno2"/>
+      <property name="javax.persistence.jdbc.password" value="aluno"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="aluno"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+    </properties>
+  </persistence-unit>
+</persistence>

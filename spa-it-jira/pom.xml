@@ -24,4 +24,11 @@
                         </roles>
                 </developer>
         </developers>
+        <dependencies>
+        	<dependency>
+        		<groupId>br.edu.utfpr.cm</groupId>
+        		<artifactId>spa-it-core</artifactId>
+        		<version>0.0.1-SNAPSHOT</version>
+        	</dependency>
+        </dependencies>
 </project>

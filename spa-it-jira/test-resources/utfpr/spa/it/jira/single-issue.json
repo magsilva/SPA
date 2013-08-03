@@ -1,0 +1,121 @@
+{
+    "expand": "schema,names",
+    "issues": [
+        {
+            "expand": "editmeta,renderedFields,transitions,changelog,operations",
+            "fields": {
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "aggregatetimeestimate": null,
+                "aggregatetimeoriginalestimate": null,
+                "aggregatetimespent": null,
+                "assignee": null,
+                "components": [],
+                "created": "2010-05-27T22:23:16.000+0000",
+                "customfield_10010": null,
+                "customfield_12310220": null,
+                "customfield_12310222": null,
+                "customfield_12310290": null,
+                "customfield_12310291": null,
+                "customfield_12310300": null,
+                "customfield_12310310": "0.0",
+                "customfield_12310420": "151177",
+                "customfield_12310920": "49095",
+                "customfield_12310921": null,
+                "customfield_12311120": null,
+                "customfield_12311421": null,
+                "description": "mod_python is spewing a lot of log spam:\r\n\r\n[Thu May 27 15:08:00 2010] [error] /usr/lib/python2.6/dist-packages/mod_python/importer.py:32: DeprecationWarning: the md5 module is deprecated; use hashlib instead",
+                "duedate": null,
+                "environment": "ubuntu linux / python 2.6",
+                "fixVersions": [],
+                "issuelinks": [],
+                "issuetype": {
+                    "description": "A problem which impairs or prevents the functions of the product.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/issuetypes/bug.png",
+                    "id": "1",
+                    "name": "Bug",
+                    "self": "https://issues.apache.org/jira/rest/api/2/issuetype/1",
+                    "subtask": false
+                },
+                "labels": [],
+                "lastViewed": null,
+                "priority": {
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.png",
+                    "id": "3",
+                    "name": "Major",
+                    "self": "https://issues.apache.org/jira/rest/api/2/priority/3"
+                },
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "project": {
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/projectavatar?size=small&pid=10640&avatarId=10011",
+                        "48x48": "https://issues.apache.org/jira/secure/projectavatar?pid=10640&avatarId=10011"
+                    },
+                    "id": "10640",
+                    "key": "MODPYTHON",
+                    "name": "mod_python",
+                    "self": "https://issues.apache.org/jira/rest/api/2/project/MODPYTHON"
+                },
+                "reporter": {
+                    "active": true,
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                        "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                    },
+                    "displayName": "Forest",
+                    "emailAddress": "apache@tibit.com",
+                    "name": "forest",
+                    "self": "https://issues.apache.org/jira/rest/api/2/user?username=forest"
+                },
+                "resolution": null,
+                "resolutiondate": null,
+                "status": {
+                    "description": "The issue is open and ready for the assignee to start work on it.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+                    "id": "1",
+                    "name": "Open",
+                    "self": "https://issues.apache.org/jira/rest/api/2/status/1"
+                },
+                "subtasks": [],
+                "summary": "md5 module is deprecated; use hashlib instead",
+                "timeestimate": null,
+                "timeoriginalestimate": null,
+                "timespent": null,
+                "updated": "2010-05-27T22:23:16.000+0000",
+                "versions": [
+                    {
+                        "archived": false,
+                        "description": "Bugfix & improved version",
+                        "id": "12312496",
+                        "name": "3.3.1",
+                        "releaseDate": "2007-02-14",
+                        "released": true,
+                        "self": "https://issues.apache.org/jira/rest/api/2/version/12312496"
+                    }
+                ],
+                "votes": {
+                    "hasVoted": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-257/votes",
+                    "votes": 0
+                },
+                "watches": {
+                    "isWatching": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-257/watchers",
+                    "watchCount": 0
+                },
+                "workratio": -1
+            },
+            "id": "12465606",
+            "key": "MODPYTHON-257",
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/12465606"
+        }
+    ],
+    "maxResults": 50,
+    "startAt": 0,
+    "total": 256
+}

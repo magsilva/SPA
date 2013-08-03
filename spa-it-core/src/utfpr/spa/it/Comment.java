@@ -1,38 +1,35 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package utfpr.spa.it;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- *
- * @author kojy
- */
 @Entity
-@Table(name = "COMENTARIO")
-public class Comentario implements Serializable {
-
-    //private static final long serialVersionUID = 1L;
+public class Comment implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataComentario;
+    
+    @Column
     private String autor;
-    @Column(columnDefinition = "LONGTEXT")
+    
+    @Column
     private String comentario;
+    
+    @Column
     @ManyToOne
     private Issue issue;
 
-    public Comentario() {
+    public Comment() {
     }
 
-    public Comentario(Issue issue) {
-        issue.addComentario(this);
+    public Comment(Issue issue) {
+        issue.addComment(this);
     }
 
     public Issue getIssue() {
@@ -76,10 +73,10 @@ public class Comentario implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Comentario)) {
+        if (!(object instanceof Comment)) {
             return false;
         }
-        Comentario other = (Comentario) object;
+        Comment other = (Comment) object;
         if (this.id != other.id) {
             return false;
         }

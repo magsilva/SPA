@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.edu.utfpr.cm</groupId>
@@ -7,28 +8,92 @@
 		<relativePath>../spa/pom.xml</relativePath>
 	</parent>
 
-  	<artifactId>spa-it-jira</artifactId>
+	<artifactId>spa-it-jira</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Interfacing component for JIRA (based upon code originally developed at https://code.google.com/p/apache-jira-miner/)</name>
 	<inceptionYear>2011</inceptionYear>
 
-        <developers>
-                <developer>
-                        <id>douglasjunior</id>
-                        <name>Douglas Nassif Roma Junior</name>
-                        <email>nassifrroma@gmail.com</email>
-                        <url>http://cocic.utfpr.edu.br/alumni/nassifrroma</url>
-                        <timezone>+3</timezone>
-                        <roles>
-                                <role>Main developer</role>
-                        </roles>
-                </developer>
-        </developers>
-        <dependencies>
-        	<dependency>
-        		<groupId>br.edu.utfpr.cm</groupId>
-        		<artifactId>spa-it-core</artifactId>
-        		<version>0.0.1-SNAPSHOT</version>
-        	</dependency>
-        </dependencies>
+	<developers>
+		<developer>
+			<id>douglasjunior</id>
+			<name>Douglas Nassif Roma Junior</name>
+			<email>nassifrroma@gmail.com</email>
+			<url>http://cocic.utfpr.edu.br/alumni/nassifrroma</url>
+			<timezone>+3</timezone>
+			<roles>
+				<role>Main developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<!-- 
+	<repositories>
+		<repository>
+			<id>atlassian-public</id>
+			<url>https://m2proxy.atlassian.com/repository/public</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>warn</checksumPolicy>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>atlassian-public</id>
+			<url>https://m2proxy.atlassian.com/repository/public</url>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<checksumPolicy>warn</checksumPolicy>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	-->
+
+	<dependencies>
+		<dependency>
+			<groupId>br.edu.utfpr.cm</groupId>
+			<artifactId>spa-it-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- 		
+		<dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>2.0.0-m25</version>
+        </dependency>
+
+		<dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-api</artifactId>
+            <version>2.0.0-m25</version>
+        </dependency>
+		-->
+		<dependency>
+			<groupId>ironiacorp</groupId>
+			<artifactId>commons-http</artifactId>
+			<version>5.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-json-org</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>[2.2,)</version>
+		</dependency>
+	</dependencies>
 </project>

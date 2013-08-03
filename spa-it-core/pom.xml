@@ -7,4 +7,11 @@
   </parent>
   <artifactId>spa-it-core</artifactId>
   <name>Core classes for issue tracker (IT) support</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>br.edu.utfpr.cm</groupId>
+  		<artifactId>spa-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

@@ -17,6 +17,9 @@ public class Artifact implements Serializable
     private int id;
     
     @Column
+    private int internalId;
+    
+	@Column
     @ManyToOne
     private Project project;
     
@@ -27,6 +30,14 @@ public class Artifact implements Serializable
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getInternalId() {
+		return internalId;
+	}
+
+	public void setInternalId(int internalId) {
+		this.internalId = internalId;
+	}
     
     public Project getProject() {
         return project;
@@ -41,6 +52,7 @@ public class Artifact implements Serializable
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
+		result = prime * result + internalId;
 		result = prime * result + ((project == null) ? 0 : project.hashCode());
 		return result;
 	}
@@ -58,6 +70,9 @@ public class Artifact implements Serializable
 		
 		Artifact other = (Artifact) obj;
 		if (id != other.id)
+			return false;
+
+		if (internalId != other.internalId)
 			return false;
 		
 		if (project == null) {

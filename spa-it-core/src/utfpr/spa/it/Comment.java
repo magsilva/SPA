@@ -1,11 +1,14 @@
 package utfpr.spa.it;
 
-import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.*;
 
+import utfpr.spa.Artifact;
+import utfpr.spa.Person;
+
 @Entity
-public class Comment implements Serializable
+public class Comment extends Artifact
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,13 +16,13 @@ public class Comment implements Serializable
 
     @Column
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date dataComentario;
+    private Date creationDate;
     
     @Column
-    private String autor;
+    private Person author;
     
     @Column
-    private String comentario;
+    private String body;
     
     @Column
     @ManyToOne
@@ -40,28 +43,28 @@ public class Comment implements Serializable
         this.issue = issue;
     }
 
-    public String getComentario() {
-        return comentario;
+    public String getBody() {
+        return body;
     }
 
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
+    public void setBody(String body) {
+        this.body = body;
     }
 
-    public String getAutor() {
-        return autor;
+    public Person getAutor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(Person author) {
+        this.author = author;
     }
 
-    public Date getDataComentario() {
-        return dataComentario;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setDataComentario(Date dataComentario) {
-        this.dataComentario = dataComentario;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     @Override
@@ -85,10 +88,10 @@ public class Comment implements Serializable
 
     @Override
     public String toString() {
-        if (this.getComentario() == null) {
+        if (this.getBody() == null) {
             return null;
         } else {
-            return "Data:" + getDataComentario() + " Autor:" + getAutor() + " Comentario:" + getComentario();
+            return "Data:" + getCreationDate() + " Autor:" + getAutor() + " Comentario:" + getBody();
         }
 
     }
@@ -103,8 +106,8 @@ public class Comment implements Serializable
 
     public boolean estaCompleto() {
         if (getAutor() == null
-                || getComentario() == null
-                || getDataComentario() == null) {
+                || getBody() == null
+                || getCreationDate() == null) {
             return false;
         }
         return true;

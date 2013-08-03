@@ -24,19 +24,9 @@ public class Issue extends Artifact
 	@Column
 	private String summary;
 
-	public String getSummary() {
-		return summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
 
 	@Column
     private String description;
-    
-	@Column
-	private int internalId;
 	
 	@Column
 	private Person assignee;
@@ -69,6 +59,14 @@ public class Issue extends Artifact
         comments = new ArrayList<Comment>();
     }
 
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+    
     public Person getAssignee() {
         return assignee;
     }
@@ -137,14 +135,6 @@ public class Issue extends Artifact
         this.status = status;
     }
 
-    public int getInternalId() {
-        return internalId;
-    }
-
-    public void setInternalId(int internetId) {
-        this.internalId = internetId;
-    }
-
     public String getComponent() {
         return configurationItemName;
     }
@@ -199,7 +189,6 @@ public class Issue extends Artifact
 				+ ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result + internalId;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((priority == null) ? 0 : priority.hashCode());
@@ -245,8 +234,6 @@ public class Issue extends Artifact
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
-			return false;
-		if (internalId != other.internalId)
 			return false;
 		if (name == null) {
 			if (other.name != null)

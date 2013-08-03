@@ -1,0 +1,36 @@
+{
+    "comments": [
+        {
+            "author": {
+                "active": true,
+                "avatarUrls": {
+                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                },
+                "displayName": "Andrew Wang",
+                "emailAddress": "andrew.wang@cloudera.com",
+                "name": "andrew.wang",
+                "self": "https://issues.apache.org/jira/rest/api/2/user?username=andrew.wang"
+            },
+            "body": "I think the fix is first qualifying paths before they are passed to the underlying FileSystem. I'm a bit surprised VFS doesn't do this already, but I guess it's worked so far since DFS (except for rename) just assumes it's the default FS when given an unqualified path.\n\nI think I'll qualify just for VFS#rename, but it could conceivably be done for all VFS calls.",
+            "created": "2013-07-23T00:15:23.892+0000",
+            "id": "13715898",
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/12659221/comment/13715898",
+            "updateAuthor": {
+                "active": true,
+                "avatarUrls": {
+                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                },
+                "displayName": "Andrew Wang",
+                "emailAddress": "andrew.wang@cloudera.com",
+                "name": "andrew.wang",
+                "self": "https://issues.apache.org/jira/rest/api/2/user?username=andrew.wang"
+            },
+            "updated": "2013-07-23T00:15:23.892+0000"
+        }
+    ],
+    "maxResults": 1,
+    "startAt": 0,
+    "total": 1
+}

@@ -100,6 +100,7 @@ public class Project
     public int hashCode() {
         int hash = 0;
         hash += (int) id;
+        
         return hash;
     }
 
@@ -117,6 +118,6 @@ public class Project
 
     @Override
     public String toString() {
-        return "pojo.Projeto[ id=" + id + " ]";
+        return "project[ id=" + id + " ]";
     }
 }

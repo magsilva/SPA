@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.joda.time.format.DateTimeFormatter;
@@ -13,13 +12,51 @@ import org.joda.time.format.ISODateTimeFormat;
 
 import utfpr.spa.Person;
 import utfpr.spa.Project;
+import utfpr.spa.it.Comment;
 import utfpr.spa.it.Issue;
 import utfpr.spa.it.IssuePriority;
 import utfpr.spa.it.IssueStatus;
 
 public class JiraJson
 {
-
+	private Person getPerson(JsonNode node, String path)
+	{
+		JsonNode personNode = node.path(path);
+		if (! personNode.path("author").isNull()) {
+			Person person = new Person();
+			person.setName(personNode.path("displayName").getTextValue());
+			person.setUsername(personNode.path("name").getTextValue());
+			person.setEmail(personNode.path("emailAddress").getTextValue());
+			return person;
+		}
+		return null;
+	}
+	
+	public Collection<Comment> getComments(String jsonText) throws Exception
+	{
+		List<Comment> comments = new ArrayList<Comment>();
+		DateTimeFormatter isoDateParser = ISODateTimeFormat.dateTimeParser();
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode rootNode = mapper.readTree(jsonText);
+		JsonNode commentsNode = rootNode.path("comments");
+		
+		Iterator<JsonNode> commentsNodes = commentsNode.getElements();
+		while (commentsNodes.hasNext()) {
+			Comment comment = new Comment();
+			JsonNode commentNode = commentsNodes.next();
+			
+			comment.setInternalId(Integer.parseInt(commentNode.path("id").getTextValue()));
+			comment.setAuthor(getPerson(commentNode, "author"));
+			comment.setBody(commentNode.path("body").getTextValue());
+			comment.setCreationDate(isoDateParser.parseDateTime(commentNode.path("created").getTextValue()).toDate());
+			
+			comments.add(comment);
+		}
+		
+		return comments;
+	}
+	
+	
 	public Collection<Issue> getIssue(String jsonText) throws Exception
 	{
 		List<Issue> issues = new ArrayList<Issue>();
@@ -64,14 +101,8 @@ public class JiraJson
 				project.setShortName(projectNode.path("key").getTextValue());
 				issue.setProject(project);
 			}
-			if (fieldsNode.path("reporter").isContainerNode()) {
-				JsonNode reporterNode = fieldsNode.path("reporter");
-				Person reporter = new Person();
-				reporter.setName(reporterNode.path("displayName").getTextValue());
-				reporter.setUsername(reporterNode.path("name").getTextValue());
-				reporter.setEmail(reporterNode.path("emailAddress").getTextValue());
-				issue.setReporter(reporter);
-			}
+			issue.setReporter(getPerson(fieldsNode, "reporter"));
+		
 			issues.add(issue);
 			if (! fieldsNode.path("resolution").isNull()) {
 				String resolution = fieldsNode.path("resolution").getTextValue();
@@ -92,6 +123,7 @@ public class JiraJson
 				}
 			}
 		}
+			
 		return issues;
 	}
 }

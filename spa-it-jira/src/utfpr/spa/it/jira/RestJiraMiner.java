@@ -26,8 +26,9 @@ public class RestJiraMiner
 
 		String page = new String(result.getContentAsByteArray());
 		System.out.println(page);
-
-			}
+	
+		// /rest/api/2/issue/{issueIdOrKey}/comment
+	}
 	
 	public static void main(String[] args) throws Exception
 	{

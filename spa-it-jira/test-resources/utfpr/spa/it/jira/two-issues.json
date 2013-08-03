@@ -1,0 +1,248 @@
+{
+    "expand": "schema,names",
+    "issues": [
+        {
+            "expand": "editmeta,renderedFields,transitions,changelog,operations",
+            "fields": {
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "aggregatetimeestimate": null,
+                "aggregatetimeoriginalestimate": null,
+                "aggregatetimespent": null,
+                "assignee": null,
+                "components": [],
+                "created": "2010-05-27T22:23:16.000+0000",
+                "customfield_10010": null,
+                "customfield_12310220": null,
+                "customfield_12310222": null,
+                "customfield_12310290": null,
+                "customfield_12310291": null,
+                "customfield_12310300": null,
+                "customfield_12310310": "0.0",
+                "customfield_12310420": "151177",
+                "customfield_12310920": "49095",
+                "customfield_12310921": null,
+                "customfield_12311120": null,
+                "customfield_12311421": null,
+                "description": "mod_python is spewing a lot of log spam:\r\n\r\n[Thu May 27 15:08:00 2010] [error] /usr/lib/python2.6/dist-packages/mod_python/importer.py:32: DeprecationWarning: the md5 module is deprecated; use hashlib instead",
+                "duedate": null,
+                "environment": "ubuntu linux / python 2.6",
+                "fixVersions": [],
+                "issuelinks": [],
+                "issuetype": {
+                    "description": "A problem which impairs or prevents the functions of the product.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/issuetypes/bug.png",
+                    "id": "1",
+                    "name": "Bug",
+                    "self": "https://issues.apache.org/jira/rest/api/2/issuetype/1",
+                    "subtask": false
+                },
+                "labels": [],
+                "lastViewed": null,
+                "priority": {
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.png",
+                    "id": "3",
+                    "name": "Major",
+                    "self": "https://issues.apache.org/jira/rest/api/2/priority/3"
+                },
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "project": {
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/projectavatar?size=small&pid=10640&avatarId=10011",
+                        "48x48": "https://issues.apache.org/jira/secure/projectavatar?pid=10640&avatarId=10011"
+                    },
+                    "id": "10640",
+                    "key": "MODPYTHON",
+                    "name": "mod_python",
+                    "self": "https://issues.apache.org/jira/rest/api/2/project/MODPYTHON"
+                },
+                "reporter": {
+                    "active": true,
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                        "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                    },
+                    "displayName": "Forest",
+                    "emailAddress": "apache@tibit.com",
+                    "name": "forest",
+                    "self": "https://issues.apache.org/jira/rest/api/2/user?username=forest"
+                },
+                "resolution": null,
+                "resolutiondate": null,
+                "status": {
+                    "description": "The issue is open and ready for the assignee to start work on it.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+                    "id": "1",
+                    "name": "Open",
+                    "self": "https://issues.apache.org/jira/rest/api/2/status/1"
+                },
+                "subtasks": [],
+                "summary": "md5 module is deprecated; use hashlib instead",
+                "timeestimate": null,
+                "timeoriginalestimate": null,
+                "timespent": null,
+                "updated": "2010-05-27T22:23:16.000+0000",
+                "versions": [
+                    {
+                        "archived": false,
+                        "description": "Bugfix & improved version",
+                        "id": "12312496",
+                        "name": "3.3.1",
+                        "releaseDate": "2007-02-14",
+                        "released": true,
+                        "self": "https://issues.apache.org/jira/rest/api/2/version/12312496"
+                    }
+                ],
+                "votes": {
+                    "hasVoted": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-257/votes",
+                    "votes": 0
+                },
+                "watches": {
+                    "isWatching": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-257/watchers",
+                    "watchCount": 0
+                },
+                "workratio": -1
+            },
+            "id": "12465606",
+            "key": "MODPYTHON-257",
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/12465606"
+        },
+       {
+            "expand": "editmeta,renderedFields,transitions,changelog,operations",
+            "fields": {
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "aggregatetimeestimate": null,
+                "aggregatetimeoriginalestimate": null,
+                "aggregatetimespent": null,
+                "assignee": null,
+                "components": [
+                    {
+                        "id": "11607",
+                        "name": "core",
+                        "self": "https://issues.apache.org/jira/rest/api/2/component/11607"
+                    }
+                ],
+                "created": "2006-11-21T23:55:21.000+0000",
+                "customfield_10010": null,
+                "customfield_12310220": null,
+                "customfield_12310222": null,
+                "customfield_12310290": null,
+                "customfield_12310291": null,
+                "customfield_12310300": null,
+                "customfield_12310310": "0.0",
+                "customfield_12310420": "151129",
+                "customfield_12310920": "49247",
+                "customfield_12310921": null,
+                "customfield_12311120": null,
+                "customfield_12311421": null,
+                "description": "When defining a mod_python handler, it is possible to supply a dotted path for the actual handler function to be used. Ie:\n\n  PythonHandler module::instance.function\n\nwhen determing the handler to execute, it will use the dotted path to traverse any object hierarchy. Thus the above will execute \"function()\" of the object instance called \"instance\" in the module called \"module\".\n\nIf instead one provides:\n\n  PythonHandler module::class.function\n\nwhere 'class' is the name of a class type, then referencing 'function' within that type will result in an instance of the class automatically being created just for the current request, with \"function()' then being called on that transient instance of the class.\n\nFor an instance of the class to be created in this way, one must access a member function of the class type. If an instance of the class is callable in its own right, ie., has a __call__() method, it is not however possible to say:\n\n  PythonHandler module::class\n\nTo get that to work, you instead have to use:\n\n  PythonHandler module::class.__call__\n\nFirst change should be that if a class is callable through having a __call__() method, then it should not be necessary to reference the __call__() method explicitly, instead, referencing the class type itself should be enough. Ie., using\n\n  PythonHandler module::class\n\nshould work.\n\nNote that the code will have to be smart enough to handle both new and old style classes.\n\nThe next issue with this automatic initialisation of a class type is that although the __call__() method needs to accept the 'req' argument, the constructor has to as well if it is being created automatically. The code should allow for the case where the class doesn't want to have to deal with the 'req' object as an argument to the constructor. Ie., it should be optional for the constructor, although always still required for the actual function of the class instance being called.",
+                "duedate": null,
+                "environment": null,
+                "fixVersions": [],
+                "issuelinks": [],
+                "issuetype": {
+                    "description": "An improvement or enhancement to an existing feature or task.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/issuetypes/improvement.png",
+                    "id": "4",
+                    "name": "Improvement",
+                    "self": "https://issues.apache.org/jira/rest/api/2/issuetype/4",
+                    "subtask": false
+                },
+                "labels": [],
+                "lastViewed": null,
+                "priority": {
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.png",
+                    "id": "3",
+                    "name": "Major",
+                    "self": "https://issues.apache.org/jira/rest/api/2/priority/3"
+                },
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "project": {
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/projectavatar?size=small&pid=10640&avatarId=10011",
+                        "48x48": "https://issues.apache.org/jira/secure/projectavatar?pid=10640&avatarId=10011"
+                    },
+                    "id": "10640",
+                    "key": "MODPYTHON",
+                    "name": "mod_python",
+                    "self": "https://issues.apache.org/jira/rest/api/2/project/MODPYTHON"
+                },
+                "reporter": {
+                    "active": true,
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                        "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                    },
+                    "displayName": "Graham Dumpleton",
+                    "emailAddress": "Graham.Dumpleton@gmail.com",
+                    "name": "grahamd",
+                    "self": "https://issues.apache.org/jira/rest/api/2/user?username=grahamd"
+                },
+                "resolution": null,
+                "resolutiondate": null,
+                "status": {
+                    "description": "The issue is open and ready for the assignee to start work on it.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+                    "id": "1",
+                    "name": "Open",
+                    "self": "https://issues.apache.org/jira/rest/api/2/status/1"
+                },
+                "subtasks": [],
+                "summary": "Automatic construction of handler class.",
+                "timeestimate": null,
+                "timeoriginalestimate": null,
+                "timespent": null,
+                "updated": "2006-11-21T23:55:21.000+0000",
+                "versions": [
+                    {
+                        "archived": false,
+                        "description": "next bugfix release",
+                        "id": "12312497",
+                        "name": "3.3.x",
+                        "released": false,
+                        "self": "https://issues.apache.org/jira/rest/api/2/version/12312497"
+                    },
+                    {
+                        "archived": false,
+                        "description": "Bugfix & improved version",
+                        "id": "12312029",
+                        "name": "3.2.10",
+                        "releaseDate": "2006-08-03",
+                        "released": true,
+                        "self": "https://issues.apache.org/jira/rest/api/2/version/12312029"
+                    }
+                ],
+                "votes": {
+                    "hasVoted": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-208/votes",
+                    "votes": 0
+                },
+                "watches": {
+                    "isWatching": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/MODPYTHON-208/watchers",
+                    "watchCount": 0
+                },
+                "workratio": -1
+            },
+            "id": "12356313",
+            "key": "MODPYTHON-208",
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/12356313"
+        }
+    ],
+    "maxResults": 50,
+    "startAt": 0,
+    "total": 2
+}

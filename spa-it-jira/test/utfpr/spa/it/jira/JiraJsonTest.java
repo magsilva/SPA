@@ -16,6 +16,7 @@ import utfpr.spa.Project;
 import utfpr.spa.it.Comment;
 import utfpr.spa.it.Issue;
 import utfpr.spa.it.IssuePriority;
+import utfpr.spa.it.IssueResolution;
 import utfpr.spa.it.IssueStatus;
 
 import com.ironiacorp.io.IoUtil;
@@ -136,7 +137,7 @@ public class JiraJsonTest
 		author.setName("Andrew Wang");
 		author.setUsername("andrew.wang");
 		author.setEmail("andrew.wang@cloudera.com");
-		assertEquals(author, comment.getAutor());
+		assertEquals(author, comment.getAuthor());
 	}
 	
 	@Test
@@ -162,7 +163,7 @@ public class JiraJsonTest
 		author.setName("Andrew Wang");
 		author.setUsername("andrew.wang");
 		author.setEmail("andrew.wang@cloudera.com");
-		assertEquals(author, comment.getAutor());
+		assertEquals(author, comment.getAuthor());
 		
 		while (i.hasNext()) {
 			comment = i.next();
@@ -174,7 +175,72 @@ public class JiraJsonTest
 		author.setName("Hudson");
 		author.setUsername("hudson");
 		author.setEmail("jira@apache.org");
-		assertEquals(author, comment.getAutor());	
+		assertEquals(author, comment.getAuthor());	
 	}
-
+	
+	@Test
+	public void testOneFullIssue() throws Exception
+	{
+		InputStream is = JiraJsonTest.class.getClassLoader().getResourceAsStream("utfpr/spa/it/jira/issue-HADOOP.json");
+		byte[] rawData = IoUtil.toByteArray(is);
+		String jsonText = new String(rawData);
+		Collection<Issue> issues = jj.getIssue(jsonText);
+		
+		Person reporter = new Person();
+		Person assignee = new Person();
+		Person author1stComment = new Person();
+		Person authorLastComment = new Person();
+		Project project = new Project();
+		project.setInternalId(12310240);
+		project.setName("Hadoop Common");
+		project.setShortName("HADOOP");
+		GregorianCalendar date = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
+		
+		assertEquals(1, issues.size());
+		Issue issue = issues.iterator().next();
+		assertEquals(12328545, issue.getInternalId());
+		assertEquals("HADOOP-2", issue.getName());
+		date.set(2006, 1, 4, 5, 54, 30);
+		assertEquals(date.getTime().toString(), issue.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("Reused Keys and Values fail with a Combiner", issue.getSummary());
+		assertEquals("If the map function reuses the key or value by destructively modifying it after the output.collect(key,value) call and your application uses a combiner, the data is corrupted by having lots of instances with the last key or value.", issue.getDescription());
+		reporter.setName("Owen O'Malley");
+		reporter.setUsername("owen.omalley");
+		reporter.setEmail("omalley@apache.org");
+		assertEquals(reporter, issue.getReporter());
+		assignee.setName("Owen O'Malley");
+		assignee.setUsername("owen.omalley");
+		assignee.setEmail("omalley@apache.org");
+		assertEquals(assignee, issue.getAssignee());
+		assertEquals(IssuePriority.HIGH, issue.getPriority());
+		assertEquals(project, issue.getProject());
+		assertEquals(IssueStatus.CLOSED, issue.getStatus());
+		assertEquals(IssueResolution.FIXED, issue.getResolution());
+		
+		Collection<Comment> comments = issue.getComentarios();
+		assertEquals(14, comments.size());
+		
+		Iterator<Comment> i = comments.iterator();
+		Comment comment = i.next();
+		assertEquals(12372305, comment.getInternalId());
+		date.set(2006, 2, 30, 5, 8, 1);
+		assertEquals(date.getTime().toString(), comment.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("The reason that new objects are allocated during map is so that new objects will be available for the combiner.  So fixing HADOOP-110 is easy, but HADOOP-2 must be fixed first, since it is the underlying problem.", comment.getBody());
+		author1stComment.setName("Doug Cutting");
+		author1stComment.setUsername("cutting");
+		author1stComment.setEmail("cutting@apache.org");
+		assertEquals(author1stComment, comment.getAuthor());
+		
+		while (i.hasNext()) {
+			comment = i.next();
+		}
+		assertEquals(13698008, comment.getInternalId());
+		date.set(2013, 6, 2, 17, 24, 17);
+		assertEquals(date.getTime().toString(), comment.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("Integrated in Hive-trunk-hadoop2 #269 (See [https://builds.apache.org/job/Hive-trunk-hadoop2/269/])\n    HIVE-4436 : hive.exec.parallel=true doesn't work on hadoop-2\n (Gopal V via Navis) (Revision 1498773)\n\n     Result = FAILURE", comment.getBody());
+		authorLastComment.setName("Hudson");
+		authorLastComment.setUsername("hudson");
+		authorLastComment.setEmail("jira@apache.org");
+		assertEquals(authorLastComment, comment.getAuthor());
+	}
 }

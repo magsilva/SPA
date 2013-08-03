@@ -51,6 +51,9 @@ public class Issue extends Artifact
     
 	@Column
     private IssueStatus status;
+	
+	@Column
+	private IssueResolution resolution;
     
 	@Column
     private IssuePriority priority;
@@ -111,6 +114,22 @@ public class Issue extends Artifact
         }
     }
 
+    public void addComment(Comment comment)
+    {
+        if (! comments.contains(comment)) {
+            comments.add(comment);
+        }
+        comment.setIssue(this);
+    }
+    
+    public void removeComment(Comment comment)
+    {
+        if (comments.contains(comment)) {
+            comments.remove(comment);
+        }
+        comment.setIssue(null);
+    }
+    
     public IssuePriority getPriority() {
         return priority;
     }
@@ -135,6 +154,14 @@ public class Issue extends Artifact
         this.status = status;
     }
 
+	public IssueResolution getResolution() {
+		return resolution;
+	}
+
+	public void setResolution(IssueResolution resolution) {
+		this.resolution = resolution;
+	}
+    
     public String getComponent() {
         return configurationItemName;
     }
@@ -151,22 +178,6 @@ public class Issue extends Artifact
         this.name = name;
     }
 
-    public void addComment(Comment comment)
-    {
-        if (! comments.contains(comment)) {
-            comments.add(comment);
-        }
-        comment.setIssue(this);
-    }
-    
-    public void removeComment(Comment comment)
-    {
-        if (comments.contains(comment)) {
-            comments.remove(comment);
-        }
-        comment.setIssue(null);
-    }
-
     @Override
     public String toString()
     {
@@ -177,26 +188,17 @@ public class Issue extends Artifact
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((assignee == null) ? 0 : assignee.hashCode());
-		result = prime * result
-				+ ((comments == null) ? 0 : comments.hashCode());
-		result = prime
-				* result
-				+ ((configurationItemName == null) ? 0 : configurationItemName
-						.hashCode());
-		result = prime * result
-				+ ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result	+ ((assignee == null) ? 0 : assignee.hashCode());
+		result = prime * result	+ ((comments == null) ? 0 : comments.hashCode());
+		result = prime * result	+ ((configurationItemName == null) ? 0 : configurationItemName.hashCode());
+		result = prime * result	+ ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result	+ ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((priority == null) ? 0 : priority.hashCode());
-		result = prime * result
-				+ ((reporter == null) ? 0 : reporter.hashCode());
-		result = prime * result
-				+ ((resolvedDate == null) ? 0 : resolvedDate.hashCode());
+		result = prime * result	+ ((priority == null) ? 0 : priority.hashCode());
+		result = prime * result	+ ((reporter == null) ? 0 : reporter.hashCode());
+		result = prime * result	+ ((resolvedDate == null) ? 0 : resolvedDate.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((resolution == null) ? 0 : resolution.hashCode());
 		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
 		return result;
 	}
@@ -254,6 +256,8 @@ public class Issue extends Artifact
 			return false;
 		if (status != other.status)
 			return false;
+		if (resolution != other.resolution)
+			return false;
 		if (summary == null) {
 			if (other.summary != null)
 				return false;
@@ -261,6 +265,4 @@ public class Issue extends Artifact
 			return false;
 		return true;
 	}
-
-
 }

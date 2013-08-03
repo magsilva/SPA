@@ -4,5 +4,5 @@ public enum IssueStatus
 {
 	OPEN,
 	ASSIGNED,
-	RESOLVED
+	CLOSED
 }

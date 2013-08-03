@@ -17,8 +17,10 @@ public class Project
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-	
     @Column
+    private int internalId;
+	
+	@Column
     private String name;
     
     @Column
@@ -49,6 +51,14 @@ public class Project
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getInternalId() {
+		return internalId;
+	}
+
+	public void setInternalId(int internalId) {
+		this.internalId = internalId;
+	}
     
     public List<Artifact> getArtifacts() {
         return artifacts;

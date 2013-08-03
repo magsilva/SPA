@@ -1,0 +1,601 @@
+{
+    "expand": "schema,names",
+    "issues": [
+        {
+            "expand": "editmeta,renderedFields,transitions,changelog,operations",
+            "fields": {
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "aggregatetimeestimate": null,
+                "aggregatetimeoriginalestimate": null,
+                "aggregatetimespent": null,
+                "assignee": {
+                    "active": true,
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=owen.omalley&avatarId=16820",
+                        "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=owen.omalley&avatarId=16820"
+                    },
+                    "displayName": "Owen O'Malley",
+                    "emailAddress": "omalley@apache.org",
+                    "name": "owen.omalley",
+                    "self": "https://issues.apache.org/jira/rest/api/2/user?username=owen.omalley"
+                },
+                "comment": {
+                    "comments": [
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Doug Cutting",
+                                "emailAddress": "cutting@apache.org",
+                                "name": "cutting",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=cutting"
+                            },
+                            "body": "The reason that new objects are allocated during map is so that new objects will be available for the combiner.  So fixing HADOOP-110 is easy, but HADOOP-2 must be fixed first, since it is the underlying problem.",
+                            "created": "2006-03-30T05:08:01.000+0000",
+                            "id": "12372305",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/12372305",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Doug Cutting",
+                                "emailAddress": "cutting@apache.org",
+                                "name": "cutting",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=cutting"
+                            },
+                            "updated": "2006-03-30T05:08:01.000+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=owen.omalley&avatarId=16820",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=owen.omalley&avatarId=16820"
+                                },
+                                "displayName": "Owen O'Malley",
+                                "emailAddress": "omalley@apache.org",
+                                "name": "owen.omalley",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=owen.omalley"
+                            },
+                            "body": "This patch clones the keys and values before they are cached in the CombiningCollector.\nIt adds a new method named WritableUtils.clone(Writable, JobConf) that copies the the given Writable.",
+                            "created": "2006-03-31T04:29:21.000+0000",
+                            "id": "12372534",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/12372534",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=owen.omalley&avatarId=16820",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=owen.omalley&avatarId=16820"
+                                },
+                                "displayName": "Owen O'Malley",
+                                "emailAddress": "omalley@apache.org",
+                                "name": "owen.omalley",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=owen.omalley"
+                            },
+                            "updated": "2006-03-31T04:29:21.000+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Doug Cutting",
+                                "emailAddress": "cutting@apache.org",
+                                "name": "cutting",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=cutting"
+                            },
+                            "body": "I just committed this.  Thanks Owen!",
+                            "created": "2006-03-31T05:11:16.000+0000",
+                            "id": "12372564",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/12372564",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Doug Cutting",
+                                "emailAddress": "cutting@apache.org",
+                                "name": "cutting",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=cutting"
+                            },
+                            "updated": "2006-03-31T05:11:16.000+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in HBase-TRUNK #3371 (See [https://builds.apache.org/job/HBase-TRUNK/3371/])\n    HBASE-6869 Update our hadoop-2 to 2.0.1-alpha (Revision 1389071)\n\n     Result = FAILURE",
+                            "created": "2012-09-23T15:53:11.677+0000",
+                            "id": "13461448",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13461448",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2012-09-23T15:53:11.677+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in HBase-TRUNK-on-Hadoop-2.0.0 #189 (See [https://builds.apache.org/job/HBase-TRUNK-on-Hadoop-2.0.0/189/])\n    HBASE-6869 Update our hadoop-2 to 2.0.1-alpha (Revision 1389071)\n\n     Result = FAILURE",
+                            "created": "2012-09-23T23:36:41.377+0000",
+                            "id": "13461539",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13461539",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2012-09-23T23:36:41.377+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in flume-trunk #320 (See [https://builds.apache.org/job/flume-trunk/320/])\n    FLUME-1653: Update Hadoop-23 profile to point to hadoop-2 alpha artifacts (Revision 831a86fc5501a8624b184ea65e53749df31692b8)\n\n     Result = SUCCESS",
+                            "created": "2012-10-30T03:35:09.516+0000",
+                            "id": "13486624",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13486624",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2012-10-30T03:35:09.516+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Accumulo-1.5-Hadoop-2.0 #75 (See [https://builds.apache.org/job/Accumulo-1.5-Hadoop-2.0/75/])\n    ACCUMULO-804: start-dfs.sh is in a different place in hadoop-2 (Revision 1467401)\n\n     Result = UNSTABLE",
+                            "created": "2013-04-12T20:23:22.688+0000",
+                            "id": "13630584",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13630584",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-04-12T20:23:22.688+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Accumulo-1.5 #76 (See [https://builds.apache.org/job/Accumulo-1.5/76/])\n    ACCUMULO-804: start-dfs.sh is in a different place in hadoop-2 (Revision 1467401)\n\n     Result = SUCCESS",
+                            "created": "2013-04-12T20:34:10.272+0000",
+                            "id": "13630602",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13630602",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-04-12T20:34:10.272+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hadoop-trunk-Commit #3938 (See [https://builds.apache.org/job/Hadoop-trunk-Commit/3938/])\n    MAPREDUCE-5184. Document compatibility for MapReduce applications in hadoop-2 vis-a-vis hadoop-1. Contributed by Zhijie Shen. (Revision 1493570)\n\n     Result = SUCCESS",
+                            "created": "2013-06-16T19:15:31.688+0000",
+                            "id": "13684750",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13684750",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-06-16T19:15:31.688+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hadoop-Yarn-trunk #243 (See [https://builds.apache.org/job/Hadoop-Yarn-trunk/243/])\n    MAPREDUCE-5184. Document compatibility for MapReduce applications in hadoop-2 vis-a-vis hadoop-1. Contributed by Zhijie Shen. (Revision 1493570)\n\n     Result = SUCCESS",
+                            "created": "2013-06-17T10:53:29.796+0000",
+                            "id": "13685448",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13685448",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-06-17T10:53:29.796+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hadoop-Hdfs-trunk #1433 (See [https://builds.apache.org/job/Hadoop-Hdfs-trunk/1433/])\n    MAPREDUCE-5184. Document compatibility for MapReduce applications in hadoop-2 vis-a-vis hadoop-1. Contributed by Zhijie Shen. (Revision 1493570)\n\n     Result = FAILURE",
+                            "created": "2013-06-17T13:05:38.441+0000",
+                            "id": "13685534",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13685534",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-06-17T13:05:38.441+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hadoop-Mapreduce-trunk #1460 (See [https://builds.apache.org/job/Hadoop-Mapreduce-trunk/1460/])\n    MAPREDUCE-5184. Document compatibility for MapReduce applications in hadoop-2 vis-a-vis hadoop-1. Contributed by Zhijie Shen. (Revision 1493570)\n\n     Result = SUCCESS",
+                            "created": "2013-06-17T14:09:01.694+0000",
+                            "id": "13685588",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13685588",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-06-17T14:09:01.694+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hive-trunk-h0.21 #2175 (See [https://builds.apache.org/job/Hive-trunk-h0.21/2175/])\n    HIVE-4436 : hive.exec.parallel=true doesn't work on hadoop-2\n (Gopal V via Navis) (Revision 1498773)\n\n     Result = FAILURE",
+                            "created": "2013-07-02T15:08:25.580+0000",
+                            "id": "13697863",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13697863",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-07-02T15:08:25.580+0000"
+                        },
+                        {
+                            "author": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "body": "Integrated in Hive-trunk-hadoop2 #269 (See [https://builds.apache.org/job/Hive-trunk-hadoop2/269/])\n    HIVE-4436 : hive.exec.parallel=true doesn't work on hadoop-2\n (Gopal V via Navis) (Revision 1498773)\n\n     Result = FAILURE",
+                            "created": "2013-07-02T17:24:17.598+0000",
+                            "id": "13698008",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545/comment/13698008",
+                            "updateAuthor": {
+                                "active": true,
+                                "avatarUrls": {
+                                    "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                                    "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452"
+                                },
+                                "displayName": "Hudson",
+                                "emailAddress": "jira@apache.org",
+                                "name": "hudson",
+                                "self": "https://issues.apache.org/jira/rest/api/2/user?username=hudson"
+                            },
+                            "updated": "2013-07-02T17:24:17.598+0000"
+                        }
+                    ],
+                    "maxResults": 14,
+                    "startAt": 0,
+                    "total": 14
+                },
+                "components": [],
+                "created": "2006-02-04T05:54:30.000+0000",
+                "customfield_10010": null,
+                "customfield_12310191": null,
+                "customfield_12310192": null,
+                "customfield_12310220": "2006-03-30 05:08:01.0",
+                "customfield_12310222": "1_*:*_1_*:*_4749406000_*|*_6_*:*_1_*:*_0_*|*_5_*:*_1_*:*_594243000",
+                "customfield_12310230": null,
+                "customfield_12310290": null,
+                "customfield_12310291": null,
+                "customfield_12310300": null,
+                "customfield_12310310": "1.0",
+                "customfield_12310320": null,
+                "customfield_12310420": "124570",
+                "customfield_12310920": "75282",
+                "customfield_12310921": null,
+                "customfield_12311120": null,
+                "customfield_12311421": null,
+                "description": "If the map function reuses the key or value by destructively modifying it after the output.collect(key,value) call and your application uses a combiner, the data is corrupted by having lots of instances with the last key or value.",
+                "duedate": null,
+                "environment": null,
+                "fixVersions": [
+                    {
+                        "archived": false,
+                        "description": "",
+                        "id": "12310812",
+                        "name": "0.1.0",
+                        "releaseDate": "2006-04-02",
+                        "released": true,
+                        "self": "https://issues.apache.org/jira/rest/api/2/version/12310812"
+                    }
+                ],
+                "issuelinks": [
+                    {
+                        "id": "12312140",
+                        "inwardIssue": {
+                            "fields": {
+                                "issuetype": {
+                                    "description": "A problem which impairs or prevents the functions of the product.",
+                                    "iconUrl": "https://issues.apache.org/jira/images/icons/issuetypes/bug.png",
+                                    "id": "1",
+                                    "name": "Bug",
+                                    "self": "https://issues.apache.org/jira/rest/api/2/issuetype/1",
+                                    "subtask": false
+                                },
+                                "priority": {
+                                    "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.png",
+                                    "id": "3",
+                                    "name": "Major",
+                                    "self": "https://issues.apache.org/jira/rest/api/2/priority/3"
+                                },
+                                "status": {
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+                                    "id": "6",
+                                    "name": "Closed",
+                                    "self": "https://issues.apache.org/jira/rest/api/2/status/6"
+                                },
+                                "summary": "new key and value instances are allocated before each map"
+                            },
+                            "id": "12330855",
+                            "key": "HADOOP-110",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issue/12330855"
+                        },
+                        "self": "https://issues.apache.org/jira/rest/api/2/issueLink/12312140",
+                        "type": {
+                            "id": "10001",
+                            "inward": "is depended upon by",
+                            "name": "dependent",
+                            "outward": "depends upon",
+                            "self": "https://issues.apache.org/jira/rest/api/2/issueLinkType/10001"
+                        }
+                    }
+                ],
+                "issuetype": {
+                    "description": "A problem which impairs or prevents the functions of the product.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/issuetypes/bug.png",
+                    "id": "1",
+                    "name": "Bug",
+                    "self": "https://issues.apache.org/jira/rest/api/2/issuetype/1",
+                    "subtask": false
+                },
+                "labels": [],
+                "lastViewed": null,
+                "priority": {
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.png",
+                    "id": "3",
+                    "name": "Major",
+                    "self": "https://issues.apache.org/jira/rest/api/2/priority/3"
+                },
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "project": {
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/projectavatar?size=small&pid=12310240&avatarId=10095",
+                        "48x48": "https://issues.apache.org/jira/secure/projectavatar?pid=12310240&avatarId=10095"
+                    },
+                    "id": "12310240",
+                    "key": "HADOOP",
+                    "name": "Hadoop Common",
+                    "self": "https://issues.apache.org/jira/rest/api/2/project/HADOOP"
+                },
+                "reporter": {
+                    "active": true,
+                    "avatarUrls": {
+                        "16x16": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=owen.omalley&avatarId=16820",
+                        "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=owen.omalley&avatarId=16820"
+                    },
+                    "displayName": "Owen O'Malley",
+                    "emailAddress": "omalley@apache.org",
+                    "name": "owen.omalley",
+                    "self": "https://issues.apache.org/jira/rest/api/2/user?username=owen.omalley"
+                },
+                "resolution": {
+                    "description": "A fix for this issue is checked into the tree and tested.",
+                    "id": "1",
+                    "name": "Fixed",
+                    "self": "https://issues.apache.org/jira/rest/api/2/resolution/1"
+                },
+                "resolutiondate": "2006-03-31T05:11:16.000+0000",
+                "status": {
+                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                    "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+                    "id": "6",
+                    "name": "Closed",
+                    "self": "https://issues.apache.org/jira/rest/api/2/status/6"
+                },
+                "subtasks": [],
+                "summary": "Reused Keys and Values fail with a Combiner",
+                "timeestimate": null,
+                "timeoriginalestimate": null,
+                "timespent": null,
+                "timetracking": {},
+                "updated": "2013-07-02T17:24:17.000+0000",
+                "versions": [],
+                "votes": {
+                    "hasVoted": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-2/votes",
+                    "votes": 0
+                },
+                "watches": {
+                    "isWatching": false,
+                    "self": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-2/watchers",
+                    "watchCount": 1
+                },
+                "worklog": {
+                    "maxResults": 0,
+                    "startAt": 0,
+                    "total": 0,
+                    "worklogs": []
+                },
+                "workratio": -1
+            },
+            "id": "12328545",
+            "key": "HADOOP-2",
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/12328545"
+        }
+    ],
+    "maxResults": 30,
+    "startAt": 1,
+    "total": 1
+}

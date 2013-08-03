@@ -10,10 +10,6 @@ import utfpr.spa.Person;
 @Entity
 public class Comment extends Artifact
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @Column
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date creationDate;
@@ -23,17 +19,10 @@ public class Comment extends Artifact
     
     @Column
     private String body;
-    
-    @Column
+
+	@Column
     @ManyToOne
     private Issue issue;
-
-    public Comment() {
-    }
-
-    public Comment(Issue issue) {
-        issue.addComment(this);
-    }
 
     public Issue getIssue() {
         return issue;
@@ -51,7 +40,7 @@ public class Comment extends Artifact
         this.body = body;
     }
 
-    public Person getAutor() {
+    public Person getAuthor() {
         return author;
     }
 
@@ -68,48 +57,52 @@ public class Comment extends Artifact
     }
 
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Comment)) {
-            return false;
-        }
-        Comment other = (Comment) object;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
-        if (this.getBody() == null) {
-            return null;
-        } else {
-            return "Data:" + getCreationDate() + " Autor:" + getAutor() + " Comentario:" + getBody();
-        }
-
+       return "comment { creationDate:" + getCreationDate() + " author:" + getAuthor() + " body:" + getBody();
     }
 
-    public int getId() {
-        return id;
-    }
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((body == null) ? 0 : body.hashCode());
+		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((issue == null) ? 0 : issue.hashCode());
+		return result;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comment other = (Comment) obj;
+		if (author == null) {
+			if (other.author != null)
+				return false;
+		} else if (!author.equals(other.author))
+			return false;
+		if (body == null) {
+			if (other.body != null)
+				return false;
+		} else if (!body.equals(other.body))
+			return false;
+		if (creationDate == null) {
+			if (other.creationDate != null)
+				return false;
+		} else if (!creationDate.equals(other.creationDate))
+			return false;
+		if (issue == null) {
+			if (other.issue != null)
+				return false;
+		} else if (!issue.equals(other.issue))
+			return false;
+		return true;
+	}
 
-    public boolean estaCompleto() {
-        if (getAutor() == null
-                || getBody() == null
-                || getCreationDate() == null) {
-            return false;
-        }
-        return true;
-    }
 }

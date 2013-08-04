@@ -63,7 +63,13 @@ public class JiraJson
 		return comments;
 	}
 	
-	
+	public int countIssues(String jsonText) throws Exception
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode rootNode = mapper.readTree(jsonText);
+		return rootNode.path("total").getIntValue();
+	}
+		
 	
 	public Collection<Issue> getIssue(String jsonText) throws Exception
 	{
@@ -93,8 +99,16 @@ public class JiraJson
 				String priorityName = priorityNode.path("name").getTextValue();
 				if ("Major".equalsIgnoreCase(priorityName)) {
 					issue.setPriority(IssuePriority.HIGH);
+				} else if ("Critical".equalsIgnoreCase(priorityName)) {
+					issue.setPriority(IssuePriority.CRITICAL);
+				} else if ("Blocker".equalsIgnoreCase(priorityName)) {
+					issue.setPriority(IssuePriority.BLOCKER);
+				} else if ("Minor".equalsIgnoreCase(priorityName)) {
+					issue.setPriority(IssuePriority.MINOR);
+				} else if ("Trivial".equalsIgnoreCase(priorityName)) {
+					issue.setPriority(IssuePriority.TRIVIAL);
 				} else {
-					System.out.println("Unknown priority");
+					System.out.println("Unknown priority: " + priorityName);
 				}
 			}
 			if (fieldsNode.path("project").isContainerNode()) {
@@ -113,8 +127,22 @@ public class JiraJson
 				String resolution = resolutionNode.path("name").getTextValue();
 				if ("Fixed".equalsIgnoreCase(resolution)) {
 					issue.setResolution(IssueResolution.FIXED);
+				} else if ("Duplicate".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.DUPLICATE);
+				} else if ("Won't Fix".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.WONT_FIX);
+				} else if ("Invalid".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.INVALID);
+				} else if ("Cannot Reproduce".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.CANNOT_REPRODUCE);
+				} else if ("Incomplete".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.INCOMPLETE);
+				} else if ("Later".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.LATER);
+				} else if ("Not A  Problem".equalsIgnoreCase(resolution)) {
+					issue.setResolution(IssueResolution.NOT_A_PROBLEM);
 				} else {
-					System.out.println("Unknow resolution: " + resolution);
+					System.out.println("Unknown resolution: " + resolution);
 				}
 			}
 			
@@ -124,7 +152,15 @@ public class JiraJson
 				if ("Open".equalsIgnoreCase(status)) {
 					issue.setStatus(IssueStatus.OPEN);
 				} else if ("Closed".equalsIgnoreCase(status)) {
-						issue.setStatus(IssueStatus.CLOSED);
+					issue.setStatus(IssueStatus.CLOSED);
+				} else if ("Resolved".equalsIgnoreCase(status)) {
+					issue.setStatus(IssueStatus.RESOLVED);
+				} else if ("Reopened".equalsIgnoreCase(status)) {
+					issue.setStatus(IssueStatus.REOPENED);
+				} else if ("Patch Available".equalsIgnoreCase(status)) {
+					issue.setStatus(IssueStatus.PATCH_AVAILABLE);
+				} else if ("In Progress".equalsIgnoreCase(status)) {
+					issue.setStatus(IssueStatus.IN_PROGRESS);
 				} else {
 					System.out.println("Unknown status: " + status);
 				}
@@ -135,6 +171,11 @@ public class JiraJson
 				JsonNode commentNode = fieldsNode.path("comment");
 				JsonNode commentsNode = commentNode.path("comments");
 				Collection<Comment> comments = getComments(commentsNode);
+				int commentCount = commentNode.path("total").getIntValue();
+				if (commentCount != comments.size()) {
+					System.out.println("Ops, missing some comments for issue " + issue.getName() + " (#" + issue.getInternalId()   +")"
+							+ " - We were expecting " + commentCount + ", but found only " + comments.size());
+				}
 				for (Comment comment : comments) {
 					issue.addComment(comment);
 				}

@@ -243,4 +243,97 @@ public class JiraJsonTest
 		authorLastComment.setEmail("jira@apache.org");
 		assertEquals(authorLastComment, comment.getAuthor());
 	}
+	
+	
+	@Test
+	public void testSeveralFullIssues() throws Exception
+	{
+		InputStream is = JiraJsonTest.class.getClassLoader().getResourceAsStream("utfpr/spa/it/jira/issues-HADOOP.json");
+		byte[] rawData = IoUtil.toByteArray(is);
+		String jsonText = new String(rawData);
+		Collection<Issue> issues = jj.getIssue(jsonText);
+		
+		Person reporter = new Person();
+		Person assignee = new Person();
+		Person author1stComment = new Person();
+		Person authorLastComment = new Person();
+		Project project = new Project();
+		project.setInternalId(12310240);
+		project.setName("Hadoop Common");
+		project.setShortName("HADOOP");
+		GregorianCalendar date = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
+		
+		assertEquals(30, issues.size());
+		
+		Iterator<Issue> iIssue = issues.iterator();
+		Issue issue = iIssue.next();
+		assertEquals(12328545, issue.getInternalId());
+		assertEquals("HADOOP-2", issue.getName());
+		date.set(2006, 1, 4, 5, 54, 30);
+		assertEquals(date.getTime().toString(), issue.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("Reused Keys and Values fail with a Combiner", issue.getSummary());
+		assertEquals("If the map function reuses the key or value by destructively modifying it after the output.collect(key,value) call and your application uses a combiner, the data is corrupted by having lots of instances with the last key or value.", issue.getDescription());
+		reporter.setName("Owen O'Malley");
+		reporter.setUsername("owen.omalley");
+		reporter.setEmail("omalley@apache.org");
+		assertEquals(reporter, issue.getReporter());
+		assignee.setName("Owen O'Malley");
+		assignee.setUsername("owen.omalley");
+		assignee.setEmail("omalley@apache.org");
+		assertEquals(assignee, issue.getAssignee());
+		assertEquals(IssuePriority.HIGH, issue.getPriority());
+		assertEquals(project, issue.getProject());
+		assertEquals(IssueStatus.CLOSED, issue.getStatus());
+		assertEquals(IssueResolution.FIXED, issue.getResolution());
+		
+		Collection<Comment> comments = issue.getComentarios();
+		assertEquals(14, comments.size());
+		
+		Iterator<Comment> iComment = comments.iterator();
+		Comment comment = iComment.next();
+		assertEquals(12372305, comment.getInternalId());
+		date.set(2006, 2, 30, 5, 8, 1);
+		assertEquals(date.getTime().toString(), comment.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("The reason that new objects are allocated during map is so that new objects will be available for the combiner.  So fixing HADOOP-110 is easy, but HADOOP-2 must be fixed first, since it is the underlying problem.", comment.getBody());
+		author1stComment.setName("Doug Cutting");
+		author1stComment.setUsername("cutting");
+		author1stComment.setEmail("cutting@apache.org");
+		assertEquals(author1stComment, comment.getAuthor());
+		
+		while (iComment.hasNext()) {
+			comment = iComment.next();
+		}
+		assertEquals(13698008, comment.getInternalId());
+		date.set(2013, 6, 2, 17, 24, 17);
+		assertEquals(date.getTime().toString(), comment.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("Integrated in Hive-trunk-hadoop2 #269 (See [https://builds.apache.org/job/Hive-trunk-hadoop2/269/])\n    HIVE-4436 : hive.exec.parallel=true doesn't work on hadoop-2\n (Gopal V via Navis) (Revision 1498773)\n\n     Result = FAILURE", comment.getBody());
+		authorLastComment.setName("Hudson");
+		authorLastComment.setUsername("hudson");
+		authorLastComment.setEmail("jira@apache.org");
+		assertEquals(authorLastComment, comment.getAuthor());
+
+		while (iIssue.hasNext()) {
+			issue = iIssue.next();
+		}
+		
+		assertEquals(12328902, issue.getInternalId());
+		assertEquals("HADOOP-35", issue.getName());
+		date.set(2006, 1, 14, 3, 30, 18);
+		assertEquals(date.getTime().toString(), issue.getCreationDate().toString()); // Comparing dates directly fails, despite having the same data
+		assertEquals("Files missing chunks can cause mapred runs to get stuck", issue.getSummary());
+		assertEquals("I've now several times run into a problem where a large run gets stalled as a result of a missing data block. The latest was a stall in the Summer - ie, the data might've all been there, but it was impossible to proceed because the CRC file was missing a block. It would be nice to:\n\n1) Have a \"health check\" running on a map reduce. If any data isn't available, emmit periodic warnings, and maybe have a timeout for if the data never comes back. Such warnings *should* specify which file(s) are affected by the missing blocks.\n2) Have a utility, possible part of the existing dfs utility, which can check for dfs files with unlocatable blocks. Possibly, even show a 'health' of a file - ie, what percentage of its blocks are currently at the desired replication level. Currently, there's no way that I know of to find out if a file in DFS is going to be unreadable.", issue.getDescription());
+		reporter.setName("Bryan Pendleton");
+		reporter.setUsername("bpendleton");
+		reporter.setEmail("bpapache5@geekdom.net");
+		assertEquals(reporter, issue.getReporter());
+		assertEquals(null, issue.getAssignee());
+		assertEquals(IssuePriority.HIGH, issue.getPriority());
+		assertEquals(project, issue.getProject());
+		assertEquals(IssueStatus.CLOSED, issue.getStatus());
+		assertEquals(IssueResolution.DUPLICATE, issue.getResolution());
+		
+		comments = issue.getComentarios();
+		assertEquals(2, comments.size());
+	}
+
 }

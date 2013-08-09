@@ -1,5 +1,6 @@
 package utfpr.spa;
 
+import java.util.Date;
 import java.util.Set;
 
 public class Person
@@ -11,6 +12,10 @@ public class Person
 	private String username;
 	
 	private String email;
+	
+	private Date firstDate;
+	
+	private boolean newcomer;
 	
 	private Set<String> alternativeEmails;
 
@@ -36,6 +41,22 @@ public class Person
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public Date getFirstDate() {
+		return firstDate;
+	}
+
+	public void setFirstDate(Date firstDate) {
+		this.firstDate = firstDate;
+	}
+	
+	public boolean isNewcomer() {
+		return newcomer;
+	}
+
+	public void setNewcomer(boolean newcomer) {
+		this.newcomer = newcomer;
 	}
 
 	@Override
@@ -65,18 +86,24 @@ public class Person
 		} else if (!email.equals(other.email))
 			return false;
 		
-		if (name == null) {
+		/*if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
-			return false;
+			return false;*/
 		
-		if (username == null) {
+		/*if (username == null) {
 			if (other.username != null)
 				return false;
 		} else if (!username.equals(other.username))
-			return false;
-		
+			return false;*/		
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+	
 }

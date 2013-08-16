@@ -69,7 +69,7 @@ public class Comment extends Artifact
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result + ((issue == null) ? 0 : issue.hashCode());
+		//result = prime * result + ((issue == null) ? 0 : issue.hashCode());
 		return result;
 	}
 
@@ -97,11 +97,7 @@ public class Comment extends Artifact
 				return false;
 		} else if (!creationDate.equals(other.creationDate))
 			return false;
-		if (issue == null) {
-			if (other.issue != null)
-				return false;
-		} else if (!issue.equals(other.issue))
-			return false;
+		
 		return true;
 	}
 

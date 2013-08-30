@@ -7,17 +7,17 @@
 		<relativePath>../spa/pom.xml</relativePath>
 	</parent>
 
-  	<artifactId>spa-vcs-git</artifactId>
+  	<artifactId>spa-vcs-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Interfacing component for Git (based upon code from https://github.com/douglasjunior/DouglasJuniorTCC)</name>
-	<inceptionYear>2012</inceptionYear>
+	<name>Common elements for version control systems</name>
+	<inceptionYear>2013</inceptionYear>
 
         <developers>
                 <developer>
-                        <id>douglasjunior</id>
-                        <name>Douglas Nassif Roma Junior</name>
-                        <email>nassifrroma@gmail.com</email>
-                        <url>http://cocic.utfpr.edu.br/alumni/nassifrroma</url>
+                        <id>ehrickwilliam</id>
+                        <name>Erick William dos Santos</name>
+                        <email>ehrick@vista.aero</email>
+                        <url>http://cocic.utfpr.edu.br/alumni/ehrickwilliam</url>
                         <timezone>+3</timezone>
                         <roles>
                                 <role>Main developer</role>

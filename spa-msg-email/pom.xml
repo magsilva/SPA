@@ -6,16 +6,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../spa/pom.xml</relativePath>
 	</parent>
-
-  	<artifactId>spa-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Core components of Software Project Analyzer (SPA)</name>
-	<inceptionYear>2013</inceptionYear>
+	<artifactId>spa-msg-email</artifactId>
+	<name>Support for email messages</name>
 	<dependencies>
 		<dependency>
-			<groupId>uk.ac.shef.wit</groupId>
-			<artifactId>simmetrics</artifactId>
-			<version>1.6.2</version>
+			<groupId>br.edu.utfpr.cm</groupId>
+			<artifactId>spa-msg-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

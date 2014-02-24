@@ -1,7 +1,11 @@
 package utfpr.spa;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
+
+import com.ironiacorp.string.StringUtil;
 
 public class Person
 {
@@ -23,22 +27,102 @@ public class Person
 	
 	private Set<String> alternativeEmails;
 
+	public Person() {
+		alternativeNames = new TreeSet<String>();
+		alternativeEmails = new TreeSet<String>();
+	}
+	
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
+		if (StringUtil.isEmpty(name)) {
+			throw new IllegalArgumentException("Invalid name");
+		}
+		
+		alternativeNames.remove(name);
 		this.name = name;
+		
+		if (name != null) {
+			alternativeNames.add(name);
+		}
 	}
 
+	public void addAlternativeName(String name) {
+		if (name == null || StringUtil.isEmpty(name)) {
+			throw new IllegalArgumentException("Invalid name");
+		}
+
+		alternativeNames.add(name);
+	}
+	
+	public Iterator<String> getNames() {
+		return alternativeNames.iterator();
+	}
+	
+	public boolean isKnownAs(String name) {
+		return alternativeNames.contains(name);
+	}
+	
+	public int countNames() {
+		return alternativeNames.size();
+	}
+	
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
+		if (StringUtil.isEmpty(email)) {
+			throw new IllegalArgumentException("Invalid email");
+		}
+
+		if (this.email != null) {
+			alternativeEmails.remove(this.email);
+		}
 		this.email = email;
+		if (email != null) {
+			alternativeEmails.add(email);
+		}
+	}
+	
+	public void addAlternativeEmail(String email) {
+		if (StringUtil.isEmpty(email)) {
+			throw new IllegalArgumentException("Invalid email");
+		}
+
+		if (email != null) {
+			alternativeEmails.add(email);
+		}
+	}
+	
+	public boolean canBeReachedBy(String email) {
+		return alternativeEmails.contains(email);
+	}
+	
+	public Iterator<String> getEmails() {
+		return alternativeEmails.iterator();
+	}
+	
+	public int countEmails() {
+		return alternativeEmails.size();
 	}
 
+	public void merge(Person person) {
+		Iterator<String> i = person.getNames();
+		while (i.hasNext()) {
+			String name = i.next();
+			addAlternativeName(name);
+		}
+
+		i = person.getEmails();
+		while (i.hasNext()) {
+			String email = i.next();
+			addAlternativeEmail(email);
+		}
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -123,6 +207,4 @@ public class Person
 	public String toString() {
 		return name;
 	}
-	
-	
 }

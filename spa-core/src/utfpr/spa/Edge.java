@@ -1,27 +1,25 @@
 package utfpr.spa;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import javax.persistence.*;
-
-/**
- *
- * @author AnaMaciel
- */
 @Entity
-public class Edge
+public class Edge<T, U>
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
-    private Person source;
+    @ManyToOne
+    private T source;
 	
-	@Column
-    private Person target;
+	@ManyToOne
+    private U target;
+	
+	protected static final String SEPARATOR = "-";
 	
 	public int getId() {
 		return id;
@@ -31,44 +29,58 @@ public class Edge
 		this.id = id;
 	}
 
-	public Person getSource() {
+	public T getSource() {
 		return source;
 	}
 
-	public void setSource(Person source) {
+	public void setSource(T source) {
 		this.source = source;
 	}
 
-	public Person getTarget() {
+	public U getTarget() {
 		return target;
 	}
 
-	public void setTarget(Person target) {
+	public void setTarget(U target) {
 		this.target = target;
 	}
 
-	@Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        
-        return hash;
-    }
+	
+	
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
+		result = prime * result + ((target == null) ? 0 : target.hashCode());
+		
+		return result;
+	}
+
+
 
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof Edge)) {
             return false;
         }
-        Edge other = (Edge) object;
-        if (this.id != other.id) {
-            return false;
+        
+        Edge<T, U> other = (Edge<T, U>) object;
+        if (source.equals(other.source) && target.equals(other.target)) {
+        	if (id != other.id) {
+        		throw new IllegalArgumentException("Objects are equal, but have different id");
+        	}
+        	return true;
         }
-        return true;
+        if (id == other.id) {
+        	throw new IllegalArgumentException("Objects are different, but have the same id");
+        }
+        return false;
     }
 
-    @Override
+    
+	@Override
     public String toString() {
-        return source.getUsername() + "-" + target.getUsername();
+        return source.toString() + SEPARATOR + target.toString();
     }
 }

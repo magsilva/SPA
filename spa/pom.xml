@@ -145,6 +145,8 @@
 		<module>../spa-sna</module>
 		<module>../spa-it-core</module>
 		<module>../spa-it-jira</module>
+		<module>../spa-msg-core</module>
+		<module>../spa-msg-email</module>
 		<module>../spa-vcs-core</module>
 		<module>../spa-vcs-git</module>
 	</modules>
